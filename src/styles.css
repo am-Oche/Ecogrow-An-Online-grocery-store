@@ -243,3 +243,62 @@ textarea.input { height: auto; padding: 12px 16px; resize: vertical; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
   .rv { opacity: 1; transform: none; }
 }
+
+/* ===== MOBILE + TABLET FIXES ===== */
+
+/* stop sideways scrolling */
+html, body { overflow-x: clip; max-width: 100%; }
+
+/* tablet landscape / small laptop (900-1199px): header was overcrowded */
+@media (min-width: 900px) and (max-width: 1199px) {
+  header .wrap > div.hide-m { display: none !important; }
+  header button[aria-label="Search"] { display: grid !important; }
+  header a.btn-ghost.hide-m { display: none !important; }
+  header nav[aria-label="Main"] a, header nav[aria-label="Main"] button { padding: 0 10px !important; font-size: 14px !important; }
+}
+/* category dropdown must not run off the screen */
+@media (max-width: 1199px) {
+  .card[style*="left: -120px"] { left: -100px !important; width: min(640px, calc(100vw - 64px)) !important; }
+}
+
+/* tablet portrait (600-899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .pgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hero-copy { padding: 48px 40px 8px !important; }
+  .hero-art { min-height: 380px !important; }
+  .hero-dots { left: 40px !important; }
+  .farm-grid { padding: 64px 32px !important; }
+}
+
+/* phones + tablets (<900px) */
+@media (max-width: 899px) {
+  header .wrap { height: 64px !important; gap: 12px !important; }
+  input, select, textarea { font-size: 16px !important; }
+  body { padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* phones (<600px) */
+@media (max-width: 599px) {
+  .wrap { padding: 0 16px; }
+  .pgrid { gap: 12px; }
+  .hero h1 { font-size: clamp(28px, 8.4vw, 40px) !important; }
+  .hero p { font-size: 16px !important; }
+  .hero-copy { padding: 28px 20px 4px !important; }
+  .hero-art { min-height: 260px !important; }
+  .hero-dots { left: 20px !important; }
+  .hero .btn { flex: 1 1 100%; }
+
+  /* testimonials: arrows were squeezing the text */
+  section[aria-label="Customer testimonials"] > div { padding: 32px 16px !important; }
+  section[aria-label="Customer testimonials"] > div > div:first-child { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+  section[aria-label="Customer testimonials"] > div > div:first-child > div { grid-column: 1 / -1; order: -1; }
+  section[aria-label="Customer testimonials"] > div > div:first-child > button:first-child { justify-self: end; }
+  section[aria-label="Customer testimonials"] > div > div:first-child > button:last-child { justify-self: start; }
+}
+
+/* very small phones (320-360px) */
+@media (max-width: 360px) {
+  .wrap { padding: 0 12px; }
+  .btn { padding: 0 16px; }
+  .pgrid { gap: 10px; }
+}
