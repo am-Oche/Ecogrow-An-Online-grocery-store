@@ -1,5 +1,11 @@
 # Ecogrow — online grocery store
 
+🌿 👉 VIEW THE LIVE WEBSITE — CLICK HERE
+
+Live Demo
+
+Link: https://am-oche.github.io/Ecogrow-An-Online-grocery-store/
+
 This is a working, multi-page prototype of the store. You can click through all of it. Every piece of content, setting and brand detail lives in two files, so the client can change things without touching any component:
 
 | File | What it holds |
